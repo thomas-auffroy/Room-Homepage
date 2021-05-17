@@ -1,7 +1,7 @@
 function next_fct(event){
     if (event.key === "ArrowRight" || event.key === undefined){
         counter++;
-        update(counter);;
+        update(counter);
     }
   }
 function previous_fct(event){
@@ -45,6 +45,8 @@ var buttons = document.querySelectorAll(".slider");
 var articles = document.querySelectorAll("article");
 var header = document.querySelector("header");
 var nav__text = document.querySelectorAll("li");
+var hamburger = document.getElementById("mobile-menu");
+var close__button = document.getElementById("close");
 var name_;
 var counter = 0;
 
@@ -54,8 +56,14 @@ document.addEventListener("keyup", next_fct, false);
 buttons[1].addEventListener("click", previous_fct, false);
 document.addEventListener("keyup", previous_fct, false);
 
-
 nav__text.forEach(el => el.firstChild.addEventListener("mouseenter", underline, false));
 nav__text.forEach(el => el.firstChild.addEventListener("mouseleave", reset, false));
+
+hamburger.addEventListener("click",function(){
+    document.querySelector("nav").style.display = "flex";
+    close__button.style.display = "unset"}, false);
+close__button.addEventListener("click", function(){
+    document.querySelector("nav").style.display = "";
+    close__button.style.display = "none"}, false);
 
 update(counter);
