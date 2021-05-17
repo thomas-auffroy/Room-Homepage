@@ -51,6 +51,9 @@ header #logo{
     position: absolute;
 }
 
+#close{
+    display: none;
+}
 nav li{
     display: inline-block;
     padding: 0 15px;
@@ -157,6 +160,18 @@ article .shop:after{
 
 @media only screen and (max-width: 1000px){
     
+    @keyframes menu_slide{
+        0%{
+           top: -100px;
+        }
+        100%{
+           top: 0;
+        }
+    }
+    
+    *{
+        overflow-x: hidden;
+    }
     .top, .bottom{
         flex-direction: column;
         min-height: 50vh;
@@ -182,27 +197,29 @@ article .shop:after{
     
     nav{
         display: none;
+        animation: menu-slide 1s;
         align-items: center;
         position: absolute;
         left: 0;
         top: 0;
         height: 100px;
+        min-width: 100vw;
         background: var(--white);
     }
-    ul:before{
-        position: absolute;
-        left: 20px;
-        content: url("../images/icon-close.svg");
+    nav ul{
+        padding-left: 30px;
+        transform: translateY(3px);
+    }
+    #close{
+        padding-left: 30px;
     }
     li a{
         color: black;
-        font-weight: 600;
+        font-weight: 700;
     }
     
-
-    article .slider{
+    .slider{
         transform: scale(0.7) translate(20px, 18px);
-        top: calc(-1*var(--size));
     }
     .slider.right{
         left: unset;
