@@ -10,6 +10,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+u{
+    text-decoration: underline white 2px;
+    text-underline-offset: 13px;
+}
+
 p{
     color: var(--dark-gray);
 }
@@ -32,7 +38,7 @@ body{
 
 header{
     min-width: 58vw;
-    background: no-repeat url("../images/desktop-image-hero-1.jpg") center/cover;
+    background: no-repeat center/cover;
     padding: 60px;
     position: relative;
 }
@@ -65,26 +71,15 @@ nav a:link{
 article{
     position: relative;
     flex-direction: column;
-    padding: 70px 70px 0 90px;
+    padding: 90px 70px 0 90px;
 }
-
-article:nth-of-type(1){
-    display: flex;
-}
-article:nth-of-type(2){
-    display: none;
-}
-article:nth-of-type(3){
-    display: none;
-}
-
 article h1{
     font-size: 3em;
     font-weight: 600;
     padding-right: 30px;
 }
 article p{
-    padding: 30px 30px 30px 0;
+    padding: 30px 25px 30px 0;
     line-height: 2em;
 }
 article .shop{
@@ -114,7 +109,7 @@ article .shop:after{
     
     bottom: 0;
         
-    --size: 82px;
+    --size: 83px;
     height: var(--size);
     width: var(--size);
     background: var(--black);
@@ -235,12 +230,3 @@ article .shop:after{
         padding: 70px 15px 60px 30px;
     }
 }
-
-@media only screen and (max-width: 380px){
-    header{
-        background: url("../images/mobile-image-hero-1.jpg");
-    }
-    
-}
-
-
