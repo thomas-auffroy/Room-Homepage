@@ -61,12 +61,14 @@ nav a:link{
     color: var(--white);
 }
 
-
-article:nth-of-type(1){
-    display: flex;
+article{
     position: relative;
     flex-direction: column;
     padding: 70px 70px 0 90px;
+}
+
+article:nth-of-type(1){
+    display: flex;
 }
 article:nth-of-type(2){
     display: none;
@@ -124,13 +126,13 @@ article .slider{
     left: var(--size);
 }
 .slider.right:after{
-    content: url("../images/icon-angle-right.svg")
+    content: url("../images/icon-angle-right.svg");        
 }
 .slider.left{
     left: 0;
 }
 .slider.left:after{
-    content: url("../images/icon-angle-left.svg")
+    content: url("../images/icon-angle-left.svg");
 }
 
 .bottom{
@@ -151,20 +153,21 @@ article .slider{
     line-height: 1.7em;
 }
 
-@media only screen and (max-width: 380px){
+
+
+
+@media only screen and (max-width: 1000px){
     
     .top, .bottom{
         flex-direction: column;
         min-height: 50vh;
     }
-
     
     header{
         display: flex;
         flex-direction: column;
         position: relative;
-        height: 50vh;
-        background-image: url("../images/mobile-image-hero-1.jpg");
+        height: 360px;
     }    
     header #logo{
         align-self: center;
@@ -179,7 +182,7 @@ article .slider{
     }
     
     nav{
-        display: flex;
+        display: none;
         align-items: center;
         position: absolute;
         left: 0;
@@ -196,9 +199,44 @@ article .slider{
         color: black;
         font-weight: 600;
     }
-        
+    
 
+    article .slider{
+        transform: scale(0.7) translate(20px, 18px);
+        top: calc(-1*var(--size));
+    }
+    .slider.right{
+        left: unset;
+        right: 0;
+    }
+    .slider.left{
+        left: unset;
+        right: calc(var(--size) - 24px);
+    }
+    
+    article{
+        padding: 70px 0 60px 30px;
+    }
+    article h1{
+        font-size: 2em;
+    }
+    article p{
+        padding: 20px 20px 70px 0;
+    }
+    
+    .bottom .about{
+        width: 100%;
+    }
+    .bottom .about{
+        padding: 70px 15px 60px 30px;
+    }
 }
 
+@media only screen and (max-width: 380px){
+    header{
+        background: url("../images/mobile-image-hero-1.jpg");
+    }
+    
+}
 
 
