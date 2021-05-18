@@ -80,6 +80,7 @@ article{
     position: relative;
     flex-direction: column;
     padding: 90px 70px 0 90px;
+    background: white;
 }
 article h1{
     font-size: 3em;
@@ -212,17 +213,25 @@ body.using-keyboard .slider:focus{
         position: absolute;
         left: 0;
         top: 0;
-        height: 100px;
+        height: 135px;
         min-width: 100vw;
         background: var(--white);
     }
     nav ul{
-        padding-left: 30px;
+        padding-left: 60px;
         transform: translateY(3px);
     }
     #close{
-        padding-left: 30px;
+        position: absolute;
+        z-index: 1;
+        left: 22px;
     }
+    
+    
+    .container.darkness *:not(nav, ul, #close, li, nav a, .top, header){
+        filter: brightness(70%);
+    }
+        
     li a{
         color: black;
         font-weight: 700;
