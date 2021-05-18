@@ -10,6 +10,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+body.using-mouse:focus .slider{
+    background-color: var(--very-dark-gray);
+}
+
+
 
 u{
     text-decoration: underline white 2px;
@@ -121,9 +126,14 @@ article .shop:after{
     
     z-index: 1;
 }
-.slider:hover{
+.slider:hover, .slider:active{
     background: var(--very-dark-gray);
 }
+
+body.using-keyboard .slider:focus{
+    background-color: var(--very-dark-gray);
+}
+
 .slider.right{
     right: calc(-2*var(--size))
 }
