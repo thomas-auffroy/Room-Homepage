@@ -31,14 +31,18 @@ function update(target, direction){
     header.style.backgroundImage = bg__dark + bg__config;
 
     if (direction != undefined)
-        anim__bg(direction);
+        anim__bg(direction,device);
 }
-function anim__bg(dir){
+function anim__bg(dir,device){
     let direction = "-";
+    let pos = '58vw';
     if (dir === "left")
         direction = "+";
+    if (device === "mobile")
+        pos = "100vw"
+
     header.animate([
-        { backgroundPositionX: ''+direction+'840px' },
+        { backgroundPositionX: direction+pos },
         { backgroundPositionX: 'center' }
     ], {
         duration: 500,
