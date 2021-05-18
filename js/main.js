@@ -1,17 +1,17 @@
 function next_fct(event){
     if (event.key === "ArrowRight" || event.key === undefined){
         counter++;
-        update(counter);
+        update(counter, "right");
     }
   }
 function previous_fct(event){
     if (event.key === "ArrowLeft" || event.key === undefined){
         counter--;
-        update(counter);
+        update(counter, "left");
     }
 }
   
-function update(target){
+function update(target, direction){
     let device;
     if (window.innerWidth > 380)
         device = "desktop";
@@ -29,6 +29,21 @@ function update(target){
     let bg__config = 'url("images/'+device+'-image-hero-'+str+'.jpg")';
    
     header.style.backgroundImage = bg__dark + bg__config;
+
+    if (direction != undefined)
+        anim__bg(direction);
+}
+function anim__bg(dir){
+    let direction = "-";
+    if (dir === "left")
+        direction = "+";
+    header.animate([
+        { backgroundPositionX: ''+direction+'840px' },
+        { backgroundPositionX: 'center' }
+    ], {
+        duration: 500,
+        easing: 'ease-in'
+    });
 }
 function underline(event){
     name_ = event.target.innerHTML;
@@ -44,12 +59,14 @@ function reset(event){
 function mobile_menu_display(){
     document.querySelector(".container").classList.add("darkness");
     document.querySelector("nav").style.display = "flex";
+    document.querySelector("nav").classList.add("anim__forward");
     close__button.style.display = "unset";
     bg__dark = "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),";
     update(counter);
 }
 function mobile_menu_close(){
     document.querySelector(".container").classList.remove("darkness");
+    document.querySelector("nav").classList.remove("anim__forward");
     document.querySelector("nav").style.display = "";
     close__button.style.display = "none";
     bg__dark = "";
