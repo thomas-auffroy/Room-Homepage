@@ -66,4 +66,14 @@ close__button.addEventListener("click", function(){
     document.querySelector("nav").style.display = "";
     close__button.style.display = "none"}, false);
 
+document.body.addEventListener("mousedown",function(){
+    document.body.classList.remove("using-keyboard");
+},false)
+      
+document.body.addEventListener("keydown",function(event){
+    if (event.key === "Tab")
+        document.body.classList.add("using-keyboard");
+},false)
+      
+
 update(counter);
