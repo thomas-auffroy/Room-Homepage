@@ -28,7 +28,7 @@ function update(target){
     let str = (target%3 + 1).toString();
     let bg__config = 'url("images/'+device+'-image-hero-'+str+'.jpg")';
    
-    header.style.backgroundImage = bg__config;
+    header.style.backgroundImage = bg__dark + bg__config;
 }
 function underline(event){
     name_ = event.target.innerHTML;
@@ -40,6 +40,21 @@ function underline(event){
 function reset(event){
     event.target.innerHTML = name_;
 }
+
+function mobile_menu_display(){
+    document.querySelector(".container").classList.add("darkness");
+    document.querySelector("nav").style.display = "flex";
+    close__button.style.display = "unset";
+    bg__dark = "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),";
+    update(counter);
+}
+function mobile_menu_close(){
+    document.querySelector(".container").classList.remove("darkness");
+    document.querySelector("nav").style.display = "";
+    close__button.style.display = "none";
+    bg__dark = "";
+    update(counter);
+}
   
 var buttons = document.querySelectorAll(".slider");
 var articles = document.querySelectorAll("article");
@@ -48,6 +63,7 @@ var nav__text = document.querySelectorAll("li");
 var hamburger = document.getElementById("mobile-menu");
 var close__button = document.getElementById("close");
 var name_;
+var bg__dark = "";
 var counter = 0;
 
 buttons[0].addEventListener("click", next_fct, false);
@@ -59,12 +75,8 @@ document.addEventListener("keyup", previous_fct, false);
 nav__text.forEach(el => el.firstChild.addEventListener("mouseenter", underline, false));
 nav__text.forEach(el => el.firstChild.addEventListener("mouseleave", reset, false));
 
-hamburger.addEventListener("click",function(){
-    document.querySelector("nav").style.display = "flex";
-    close__button.style.display = "unset"}, false);
-close__button.addEventListener("click", function(){
-    document.querySelector("nav").style.display = "";
-    close__button.style.display = "none"}, false);
+hamburger.addEventListener("click", mobile_menu_display, false);
+close__button.addEventListener("click", mobile_menu_close, false);
 
 document.body.addEventListener("mousedown",function(){
     document.body.classList.remove("using-keyboard");
@@ -75,5 +87,4 @@ document.body.addEventListener("keydown",function(event){
         document.body.classList.add("using-keyboard");
 },false)
       
-
 update(counter);
