@@ -156,6 +156,7 @@ body.using-keyboard .slider:focus{
 .bottom .about{  
     width: 50%;
     padding: 80px 0 0 50px;
+    background: white;
 }
 .about h3{
     text-transform: uppercase;
