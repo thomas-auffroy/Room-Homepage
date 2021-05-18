@@ -173,11 +173,11 @@ body.using-keyboard .slider:focus{
 @media only screen and (max-width: 1000px){
     
     @keyframes menu_slide{
-        0%{
-           top: -100px;
+        from{
+            top:-100px;
         }
-        100%{
-           top: 0;
+        to{
+            top: 0;
         }
     }
     
@@ -207,9 +207,12 @@ body.using-keyboard .slider:focus{
         cursor: pointer;
     }
     
+    nav.anim__forward{
+        animation: menu_slide 0.7s;
+    }
+
     nav{
         display: none;
-        animation: menu-slide 1s;
         align-items: center;
         position: absolute;
         left: 0;
