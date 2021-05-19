@@ -1,17 +1,17 @@
 function next_fct(event){
     if (event.key === "ArrowRight" || event.key === undefined){
         counter++;
-        update(counter, "right");
+        update(counter);
     }
   }
 function previous_fct(event){
     if (event.key === "ArrowLeft" || event.key === undefined){
         counter--;
-        update(counter, "left");
+        update(counter);
     }
 }
   
-function update(target, direction){
+function update(target){
     let device;
     if (window.innerWidth > 380)
         device = "desktop";
@@ -29,26 +29,8 @@ function update(target, direction){
     let bg__config = 'url("images/'+device+'-image-hero-'+str+'.jpg")';
    
     header.style.backgroundImage = bg__dark + bg__config;
-
-    if (direction != undefined)
-        anim__bg(direction,device);
 }
-function anim__bg(dir,device){
-    let direction = "-";
-    let pos = '58vw';
-    if (dir === "left")
-        direction = "+";
-    if (device === "mobile")
-        pos = "100vw"
 
-    header.animate([
-        { backgroundPositionX: direction+pos },
-        { backgroundPositionX: 'center' }
-    ], {
-        duration: 500,
-        easing: 'ease-in'
-    });
-}
 function underline(event){
     name_ = event.target.innerHTML;
   
